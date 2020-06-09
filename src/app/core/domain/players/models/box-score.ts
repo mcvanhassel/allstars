@@ -1,4 +1,4 @@
-export class BoxScore {
+export interface BoxScore {
   playerId: string;
   min: number;
   oreb: number;
