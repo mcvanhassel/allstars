@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppConfigurationModule } from 'src/app/core/app-configuration';
 
 import { GameFeatureComponent } from './game-feature.component';
+import { RosterModule } from './modules/roster/roster.module';
 
 describe('GameFeatureComponent', () => {
   let component: GameFeatureComponent;
@@ -11,7 +12,7 @@ describe('GameFeatureComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [GameFeatureComponent],
-      imports: [HttpClientTestingModule, AppConfigurationModule],
+      imports: [HttpClientTestingModule, AppConfigurationModule, RosterModule],
     }).compileComponents();
   }));
 
