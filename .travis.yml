@@ -8,6 +8,8 @@ branches:
 
 addons:
   chrome: stable
+  sonarcloud:
+    organization: ${SONAR_ORGANIZATION}
 
 before_script:
   - npm install -g firebase-tools
@@ -16,6 +18,7 @@ before_script:
 script:
   - ng lint
   - ng test --watch=false --code-coverage --browsers ChromeHeadless
+  - sonar-scanner -Dsonar.projectKey=${SONAR_PROJECT} -Dsonar.login=${SONAR_TOKEN}
   - ng build --prod
 
 after_success:
