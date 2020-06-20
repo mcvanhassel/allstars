@@ -9,7 +9,6 @@ import { PlayerWithTeam } from './models';
 @Component({
   selector: 'allstars-game-feature',
   templateUrl: './game-feature.component.html',
-  styleUrls: ['./game-feature.component.scss'],
 })
 export class GameFeatureComponent implements OnInit {
   players$: Observable<PlayerWithTeam[]> | undefined;
