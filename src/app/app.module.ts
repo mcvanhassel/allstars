@@ -5,10 +5,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { AppConfigurationModule } from './core/app-configuration';
+import { GameFeatureModule } from './features/game';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, HttpClientModule, AppConfigurationModule],
+  imports: [BrowserModule, BrowserAnimationsModule, HttpClientModule, AppConfigurationModule, GameFeatureModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
