@@ -1,0 +1,23 @@
+<table>
+  <caption>
+    NBA All Star roster 1998
+  </caption>
+  <thead>
+    <tr>
+      <th scope="col">Player</th>
+      <th scope="col">Team</th>
+      <th scope="col">Position</th>
+      <th scope="col" class="text-right">Selections</th>
+      <th scope="col" class="text-right">Votes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let player of players" [class.starter]="player.starter">
+      <td>{{ player.name }}</td>
+      <td>{{ player.teamName }}</td>
+      <td>{{ player.position }}</td>
+      <td class="text-right">{{ player.selections }}</td>
+      <td class="text-right">{{ player.votes | number }}</td>
+    </tr>
+  </tbody>
+</table>
