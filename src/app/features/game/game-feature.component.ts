@@ -20,10 +20,10 @@ export class GameFeatureComponent implements OnInit {
   }
 
   private getAllStarPlayers(): Observable<PlayerWithTeam[]> {
-    return this.playersService.getAllStars().pipe(switchMap(players => combineLatest(players.map(player => this.joinTeam(player)))));
+    return this.playersService.getAllStars().pipe(switchMap(this.joinTeams));
   }
+  private readonly joinTeams = (players: Player[]): Observable<PlayerWithTeam[]> => combineLatest(players.map(this.joinTeam));
 
-  private joinTeam(player: Player): Observable<PlayerWithTeam> {
-    return this.teamsService.getTeamById(player.teamId).pipe(map(team => ({ ...player, team })));
-  }
+  private readonly joinTeam = (player: Player): Observable<PlayerWithTeam> =>
+    this.teamsService.getTeamById(player.teamId).pipe(map(team => ({ ...player, team })));
 }
