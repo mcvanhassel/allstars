@@ -9,6 +9,7 @@ import { PlayerWithTeam } from '../../models';
   templateUrl: './roster.component.html',
 })
 export class RosterComponent implements OnInit {
+  @Input() title: string | undefined;
   @Input() players$!: Observable<PlayerWithTeam[]>;
 
   starters$!: Observable<PlayerWithTeam[]>;
