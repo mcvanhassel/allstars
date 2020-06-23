@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { combineLatest, Observable } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { map, shareReplay, switchMap } from 'rxjs/operators';
 
 import { Player, PlayersService } from '../../core/domain/players';
 import { TeamsService } from '../../core/domain/teams';
@@ -20,8 +20,9 @@ export class GameFeatureComponent implements OnInit {
   }
 
   private getAllStarPlayers(): Observable<PlayerWithTeam[]> {
-    return this.playersService.getAllStars().pipe(switchMap(this.joinTeams));
+    return this.playersService.getAllStars().pipe(switchMap(this.joinTeams), shareReplay({ refCount: true }));
   }
+
   private readonly joinTeams = (players: Player[]): Observable<PlayerWithTeam[]> => combineLatest(players.map(this.joinTeam));
 
   private readonly joinTeam = (player: Player): Observable<PlayerWithTeam> =>
