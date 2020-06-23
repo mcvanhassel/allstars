@@ -26,3 +26,12 @@ table {
     }
   }
 }
+
+@media (max-width: 1024px) {
+  th,
+  td {
+    &.hide-small {
+      display: none;
+    }
+  }
+}
