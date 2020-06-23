@@ -15,24 +15,12 @@
     <tr>
       <th scope="rowgroup" colspan="5">Starters</th>
     </tr>
-    <tr *ngFor="let player of starters$ | async">
-      <td>{{ player.name }}</td>
-      <td>{{ player.team?.name }}</td>
-      <td>{{ player.position }}</td>
-      <td class="text-right">{{ player.selections }}</td>
-      <td class="text-right">{{ player.votes | number }}</td>
-    </tr>
+    <tr *ngFor="let player of starters$ | async" allstars-roster-row [player]="player"></tr>
   </tbody>
   <tbody>
     <tr>
       <th scope="rowgroup" colspan="5">Reserves</th>
     </tr>
-    <tr *ngFor="let player of reserves$ | async">
-      <td>{{ player.name }}</td>
-      <td>{{ player.team?.name }}</td>
-      <td>{{ player.position }}</td>
-      <td class="text-right">{{ player.selections }}</td>
-      <td class="text-right">{{ player.votes | number }}</td>
-    </tr>
+    <tr *ngFor="let player of reserves$ | async" allstars-roster-row [player]="player"></tr>
   </tbody>
 </table>
