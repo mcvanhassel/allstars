@@ -4,7 +4,7 @@ import { map, shareReplay, switchMap } from 'rxjs/operators';
 
 import { Player, PlayersService } from '../../core/domain/players';
 import { Conference, TeamsService } from '../../core/domain/teams';
-import { BoxScoreWithPlayer, PlayerWithTeam } from './models';
+import { PlayerWithTeam } from './models';
 
 @Component({
   selector: 'allstars-game-feature',
@@ -14,8 +14,6 @@ import { BoxScoreWithPlayer, PlayerWithTeam } from './models';
 export class GameFeatureComponent implements OnInit {
   westernPlayers$!: Observable<PlayerWithTeam[]>;
   easternPlayers$!: Observable<PlayerWithTeam[]>;
-  westernBoxScores$!: Observable<BoxScoreWithPlayer[]>;
-  easternBoxScores$!: Observable<BoxScoreWithPlayer[]>;
 
   constructor(private readonly playersService: PlayersService, private readonly teamsService: TeamsService) {}
 
