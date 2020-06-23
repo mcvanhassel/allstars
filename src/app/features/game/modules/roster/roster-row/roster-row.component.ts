@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 
+import { positionName } from '../../../../../core/domain/players';
 import { PlayerWithTeam } from '../../../models';
 
 @Component({
@@ -9,4 +10,6 @@ import { PlayerWithTeam } from '../../../models';
 })
 export class RosterRowComponent {
   @Input() player: PlayerWithTeam | undefined;
+
+  positionName = positionName;
 }

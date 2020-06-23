@@ -3,3 +3,9 @@ export enum Position {
   Forward = 'F',
   Guard = 'G',
 }
+
+export const positionName: Record<Position, string> = {
+  ['C']: 'Center',
+  ['F']: 'Forward',
+  ['G']: 'Guard',
+};

@@ -1,5 +1,5 @@
 <td>{{ player?.name }}</td>
 <td>{{ player?.team?.name }}</td>
-<td>{{ player?.position }}</td>
+<td>{{ player && positionName[player.position] }}</td>
 <td class="text-right">{{ player?.selections }}</td>
 <td class="text-right">{{ player?.votes | number }}</td>
