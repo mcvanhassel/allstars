@@ -11,7 +11,7 @@ import { PlayerWithTeam } from './models';
   templateUrl: './game-feature.component.html',
 })
 export class GameFeatureComponent implements OnInit {
-  players$: Observable<PlayerWithTeam[]> | undefined;
+  players$!: Observable<PlayerWithTeam[]>;
 
   constructor(private readonly playersService: PlayersService, private readonly teamsService: TeamsService) {}
 
@@ -20,10 +20,10 @@ export class GameFeatureComponent implements OnInit {
   }
 
   private getAllStarPlayers(): Observable<PlayerWithTeam[]> {
-    return this.playersService.getAllStars().pipe(switchMap(players => combineLatest(players.map(player => this.joinTeamName(player)))));
+    return this.playersService.getAllStars().pipe(switchMap(players => combineLatest(players.map(player => this.joinTeam(player)))));
   }
 
-  private joinTeamName(player: Player): Observable<PlayerWithTeam> {
-    return this.teamsService.getTeamById(player.teamId).pipe(map(team => ({ ...player, teamName: team?.name })));
+  private joinTeam(player: Player): Observable<PlayerWithTeam> {
+    return this.teamsService.getTeamById(player.teamId).pipe(map(team => ({ ...player, team })));
   }
 }
