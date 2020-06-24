@@ -16,7 +16,8 @@ h2 {
 
 table {
   border-collapse: collapse;
-  th {
+  th,
+  tfoot td {
     font-weight: bold;
     background-color: #dddddd;
   }

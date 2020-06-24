@@ -1,0 +1,60 @@
+<table>
+  <caption>
+    {{
+      title
+    }}
+  </caption>
+  <thead>
+    <tr>
+      <th scope="col">Team</th>
+      <th scope="col">Player</th>
+      <th scope="col" class="text-right upper">Min</th>
+      <th scope="col" class="text-right upper">Pts</th>
+      <th scope="col" class="text-right upper">Reb</th>
+      <th scope="col" class="text-right upper">Ast</th>
+      <th scope="col" class="text-right upper">Stl</th>
+      <th scope="col" class="text-right upper">Blk</th>
+      <th scope="col" class="text-right upper">Fgm</th>
+      <th scope="col" class="text-right upper">Fga</th>
+      <th scope="col" class="text-right upper">Fg%</th>
+      <th scope="col" class="text-right upper">Tpm</th>
+      <th scope="col" class="text-right upper">Tpa</th>
+      <th scope="col" class="text-right upper">Tp%</th>
+      <th scope="col" class="text-right upper">Ftm</th>
+      <th scope="col" class="text-right upper">Fta</th>
+      <th scope="col" class="text-right upper">Ft%</th>
+      <th scope="col" class="text-right upper">Oreb</th>
+      <th scope="col" class="text-right upper">Dreb</th>
+      <th scope="col" class="text-right upper">Tov</th>
+      <th scope="col" class="text-right upper">Pf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let boxScore of boxScores" allstars-box-score-row [boxScore]="boxScore"></tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="text-right">{{ boxScores | sum: 'points' }}</td>
+      <td class="text-right">{{ boxScores | sum: 'totalRebounds' }}</td>
+      <td class="text-right">{{ boxScores | sum: 'assists' }}</td>
+      <td class="text-right">{{ boxScores | sum: 'steals' }}</td>
+      <td class="text-right">{{ boxScores | sum: 'blocks' }}</td>
+      <td class="text-right">{{ boxScores | sum: 'fieldGoalsMade' }}</td>
+      <td class="text-right">{{ boxScores | sum: 'fieldGoalsAttempted' }}</td>
+      <td></td>
+      <td class="text-right">{{ boxScores | sum: 'threePointersMade' }}</td>
+      <td class="text-right">{{ boxScores | sum: 'threePointersAttempted' }}</td>
+      <td></td>
+      <td class="text-right">{{ boxScores | sum: 'freeThrowsMade' }}</td>
+      <td class="text-right">{{ boxScores | sum: 'freeThrowsAttempted' }}</td>
+      <td></td>
+      <td class="text-right">{{ boxScores | sum: 'offensiveRebounds' }}</td>
+      <td class="text-right">{{ boxScores | sum: 'defensiveRebounds' }}</td>
+      <td class="text-right">{{ boxScores | sum: 'turnOvers' }}</td>
+      <td class="text-right">{{ boxScores | sum: 'personalFouls' }}</td>
+    </tr>
+  </tfoot>
+</table>

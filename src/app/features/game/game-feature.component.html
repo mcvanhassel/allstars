@@ -9,3 +9,11 @@
 <section>
   <allstars-game [easternBoxScores]="easternBoxScores$ | async" [westernBoxScores]="westernBoxScores$ | async"></allstars-game>
 </section>
+
+<h2>Box Score</h2>
+<section>
+  <allstars-box-score [title]="'Western Conference'" [boxScores]="westernBoxScores$ | async"></allstars-box-score>
+</section>
+<section>
+  <allstars-box-score [title]="'Eastern Conference'" [boxScores]="easternBoxScores$ | async"></allstars-box-score>
+</section>

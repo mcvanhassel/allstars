@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppConfigurationModule } from '../../core/app-configuration';
 import { GameFeatureComponent } from './game-feature.component';
+import { BoxScoreModule } from './modules/box-score';
 import { GameModule } from './modules/game';
 import { RosterModule } from './modules/roster';
 
@@ -13,7 +14,7 @@ describe('GameFeatureComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [GameFeatureComponent],
-      imports: [HttpClientTestingModule, AppConfigurationModule, RosterModule, GameModule],
+      imports: [HttpClientTestingModule, AppConfigurationModule, RosterModule, GameModule, BoxScoreModule],
     }).compileComponents();
   }));
 
