@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { from, Observable, partition } from 'rxjs';
-import { scan, switchMap } from 'rxjs/operators';
+import { map, scan, switchMap } from 'rxjs/operators';
 
+import { sortDescendingBy } from '../../../../core/utils';
 import { PlayerWithTeam } from '../../models';
 
 @Component({
@@ -18,8 +19,8 @@ export class RosterComponent implements OnInit {
   ngOnInit(): void {
     const playersOneByOne$ = this.players$.pipe(switchMap(players => from(players)));
     const [starters$, reserves$] = partition(playersOneByOne$, player => player.starter);
-    this.starters$ = this.concatPlayers(starters$);
-    this.reserves$ = this.concatPlayers(reserves$);
+    this.starters$ = this.concatPlayers(starters$).pipe(map(sortDescendingBy('position')));
+    this.reserves$ = this.concatPlayers(reserves$).pipe(map(sortDescendingBy('position')));
   }
 
   private concatPlayers(players$: Observable<PlayerWithTeam>): Observable<PlayerWithTeam[]> {
