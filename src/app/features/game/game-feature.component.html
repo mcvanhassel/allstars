@@ -4,3 +4,8 @@
   <allstars-roster [title]="'Western Conference All-Stars'" [players$]="westernPlayers$"></allstars-roster>
   <allstars-roster [title]="'Eastern Conference All-Stars'" [players$]="easternPlayers$"></allstars-roster>
 </section>
+
+<h2>Game</h2>
+<section>
+  <allstars-game [easternBoxScores]="easternBoxScores$ | async" [westernBoxScores]="westernBoxScores$ | async"></allstars-game>
+</section>
