@@ -1,0 +1,27 @@
+<table>
+  <caption>
+    Western Conference vs. Eastern Conference
+  </caption>
+  <tbody>
+    <tr>
+      <td>{{ westernBoxScores | sum: 'points' }}</td>
+      <th scope="col">Score</th>
+      <td>{{ easternBoxScores | sum: 'points' }}</td>
+    </tr>
+    <tr>
+      <td>{{ westernBoxScores | max: 'points' | playerStat: 'points' }}</td>
+      <th scope="col">Points</th>
+      <td>{{ easternBoxScores | max: 'points' | playerStat: 'points' }}</td>
+    </tr>
+    <tr>
+      <td>{{ westernBoxScores | max: 'totalRebounds' | playerStat: 'totalRebounds' }}</td>
+      <th scope="col">Rebounds</th>
+      <td>{{ easternBoxScores | max: 'totalRebounds' | playerStat: 'totalRebounds' }}</td>
+    </tr>
+    <tr>
+      <td>{{ westernBoxScores | max: 'assists' | playerStat: 'assists' }}</td>
+      <th scope="col">Assists</th>
+      <td>{{ easternBoxScores | max: 'assists' | playerStat: 'assists' }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+table {
+  th {
+    text-align: center;
+  }
+
+  td:first-child {
+    text-align: right;
+  }
+
+  td:first-child,
+  td:last-child {
+    width: 15rem;
+    white-space: pre;
+  }
+}
