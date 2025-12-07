@@ -1,28 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { createComponentFactory, type Spectator } from '@ngneat/spectator/jest';
 
-import { MaxModule } from '../../../../core/max';
-import { SumModule } from '../../../../core/sum';
-import { PlayerStatModule } from '../player-stat';
 import { GameComponent } from './game.component';
 
 describe('GameComponent', () => {
-  let component: GameComponent;
-  let fixture: ComponentFixture<GameComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [GameComponent],
-      imports: [MaxModule, SumModule, PlayerStatModule],
-    }).compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(GameComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  let spectator: Spectator<GameComponent>;
+  const createComponent = createComponentFactory({
+    component: GameComponent,
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    spectator = createComponent();
+    expect(spectator.component).toBeTruthy();
   });
 });

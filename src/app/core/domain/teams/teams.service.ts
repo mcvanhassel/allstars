@@ -1,32 +1,33 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { inject, Injectable } from '@angular/core';
+import { of, type Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
 import { AppConfiguration } from '../../app-configuration';
-import { Team } from './models';
 
-@Injectable({
-  providedIn: 'root',
-})
+import type { Team } from './models';
+
+@Injectable({ providedIn: 'root' })
 export class TeamsService {
-  constructor(private readonly http: HttpClient, private readonly appConfiguration: AppConfiguration) {}
+  private readonly http = inject(HttpClient);
+  private readonly appConfiguration = inject(AppConfiguration);
 
-  private readonly teams$ = new Map<string, Observable<Team | undefined>>();
+  private readonly teams$ = this.http
+    .get<Team[]>(`${this.appConfiguration.apiUrl}/teams.json`)
+    .pipe(shareReplay({ bufferSize: 1, refCount: false }));
+
+  private readonly teamsById$ = new Map<string, Observable<Team | undefined>>();
 
   getTeams(): Observable<Team[]> {
-    return this.http.get<Team[]>(`${this.appConfiguration.apiUrl}/teams.json`);
+    return this.teams$;
   }
 
   getTeamById(id: string): Observable<Team | undefined> {
-    if (!this.teams$.has(id)) {
-      const team$ = this.getTeams().pipe(
-        map(teams => teams.find(team => team.id === id)),
-        shareReplay({ refCount: true })
-      );
-      this.teams$.set(id, team$);
+    if (!this.teamsById$.has(id)) {
+      const team$ = this.teams$.pipe(map(teams => teams.find(team => team.id === id)));
+      this.teamsById$.set(id, team$);
     }
 
-    return this.teams$.get(id) || of(undefined);
+    return this.teamsById$.get(id) ?? of(undefined);
   }
 }

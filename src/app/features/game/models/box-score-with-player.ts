@@ -1,4 +1,4 @@
-import { BoxScore } from '../../../core/domain/players';
+import type { BoxScore } from '../../../core/domain/players';
 
 export interface BoxScoreWithPlayer extends BoxScore {
   player: string;

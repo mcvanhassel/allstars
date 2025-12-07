@@ -1,4 +1,4 @@
-import { BoxScoreDTO } from './box-score-dto';
+import type { BoxScoreDTO } from './box-score-dto';
 
 const pointsPerFreeThrow = 1;
 const pointsPerFieldGoal = 2;

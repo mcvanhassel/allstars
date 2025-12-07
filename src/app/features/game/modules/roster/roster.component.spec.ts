@@ -1,26 +1,19 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { of } from 'rxjs';
+import { createComponentFactory, type Spectator } from '@ngneat/spectator/jest';
 
 import { RosterComponent } from './roster.component';
 
 describe('RosterComponent', () => {
-  let component: RosterComponent;
-  let fixture: ComponentFixture<RosterComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [RosterComponent],
-    }).compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(RosterComponent);
-    component = fixture.componentInstance;
-    component.players$ = of([]);
-    fixture.detectChanges();
-  });
+  let spectator: Spectator<RosterComponent>;
+  const createComponent = createComponentFactory({ component: RosterComponent });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    spectator = createComponent();
+    expect(spectator.component).toBeTruthy();
+  });
+
+  it('should have empty starters and reserves by default', () => {
+    spectator = createComponent();
+    expect(spectator.component.starters()).toEqual([]);
+    expect(spectator.component.reserves()).toEqual([]);
   });
 });

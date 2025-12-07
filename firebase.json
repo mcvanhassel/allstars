@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "./dist/allstars",
+    "public": "dist/allstars/browser",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {

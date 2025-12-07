@@ -1,0 +1,25 @@
+# Dependencies
+node_modules
+
+# Build outputs
+dist
+.angular
+out-tsc
+
+# Coverage
+coverage
+
+# IDE
+.vscode
+.idea
+
+# Misc
+*.log
+*.md
+package-lock.json
+tsconfig*.json
+angular.json
+
+
+
+

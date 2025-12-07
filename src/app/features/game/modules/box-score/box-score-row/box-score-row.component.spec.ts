@@ -1,24 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { createComponentFactory, type Spectator } from '@ngneat/spectator/jest';
 
 import { BoxScoreRowComponent } from './box-score-row.component';
 
 describe('BoxScoreRowComponent', () => {
-  let component: BoxScoreRowComponent;
-  let fixture: ComponentFixture<BoxScoreRowComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [BoxScoreRowComponent],
-    }).compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(BoxScoreRowComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  let spectator: Spectator<BoxScoreRowComponent>;
+  const createComponent = createComponentFactory({
+    component: BoxScoreRowComponent,
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    spectator = createComponent();
+    expect(spectator.component).toBeTruthy();
   });
 });

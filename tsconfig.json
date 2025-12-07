@@ -4,32 +4,54 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
+    "esModuleInterop": true,
     "declaration": false,
-    "downlevelIteration": true,
     "experimentalDecorators": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "preserve",
+    "moduleResolution": "bundler",
     "importHelpers": true,
-    "target": "es2015",
+    "target": "esnext",
     "lib": ["esnext", "dom"],
-    "plugins": [
-      {
-        "name": "typescript-tslint-plugin"
-      }
-    ],
+    // Strict Type-Checking Options
+    "strict": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "strictPropertyInitialization": true,
-    "strictBindCallApply": true
+    "strictBindCallApply": true,
+    "alwaysStrict": true,
+    "noImplicitOverride": true,
+    "noUncheckedIndexedAccess": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "exactOptionalPropertyTypes": true,
+    // Additional Checks
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowUnusedLabels": false,
+    "allowUnreachableCode": false,
+    // Module Resolution
+    "useDefineForClassFields": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
   },
   "angularCompilerOptions": {
+    // Template Type Checking
     "fullTemplateTypeCheck": true,
+    "strictTemplates": true,
     "strictInjectionParameters": true,
-    "strictTemplates": true
+    "strictInputAccessModifiers": true,
+    "strictInputTypes": true,
+    "strictOutputEventTypes": true,
+    "strictDomEventTypes": true,
+    "strictDomLocalRefTypes": true,
+    "strictSafeNavigationTypes": true,
+    "strictContextGenerics": true,
+    "strictLiteralTypes": true,
+    "strictAttributeTypes": true,
+    // Performance and Diagnostics
+    "extendedDiagnostics": false
   }
 }

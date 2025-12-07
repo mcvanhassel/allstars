@@ -1,12 +1,14 @@
-import { Component, Input } from '@angular/core';
+import { PercentPipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
-import { BoxScoreWithPlayer } from '../../../models';
+import type { BoxScoreWithPlayer } from '../../../models';
 
 @Component({
-  // tslint:disable-next-line: component-selector
   selector: 'tr[allstars-box-score-row]',
   templateUrl: './box-score-row.component.html',
+  imports: [PercentPipe],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BoxScoreRowComponent {
-  @Input() boxScore: BoxScoreWithPlayer | undefined;
+  boxScore = input<BoxScoreWithPlayer>();
 }

@@ -1,1 +1,1 @@
-export { PlayerStatModule } from './player-stat.module';
+export { PlayerStatPipe } from './player-stat.pipe';

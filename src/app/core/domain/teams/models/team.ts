@@ -1,4 +1,4 @@
-import { Conference } from './conference';
+import type { Conference } from './conference';
 
 export interface Team {
   id: string;

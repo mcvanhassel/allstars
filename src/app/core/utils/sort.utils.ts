@@ -22,7 +22,9 @@ function sort(direction: SortDirection) {
 }
 
 function sortBy<T extends SortableObject<T>>(property: SortableProperty<T>) {
-  return (direction: SortDirection) => (items: T[]): T[] => items.slice().sort((a, b) => direction * compare(a[property], b[property]));
+  return (direction: SortDirection) =>
+    (items: T[]): T[] =>
+      items.slice().sort((a, b) => direction * compare(a[property], b[property]));
 }
 
 function compare(a: SortableType, b: SortableType): number {

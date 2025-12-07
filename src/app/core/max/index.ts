@@ -1,1 +1,1 @@
-export { MaxModule } from './max.module';
+export { MaxPipe } from './max.pipe';

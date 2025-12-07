@@ -1,15 +1,18 @@
-import { Component, Input } from '@angular/core';
+import { DecimalPipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 import { positionName } from '../../../../../core/domain/players';
-import { PlayerWithTeam } from '../../../models';
+
+import type { PlayerWithTeam } from '../../../models';
 
 @Component({
-  // tslint:disable-next-line: component-selector
   selector: 'tr[allstars-roster-row]',
   templateUrl: './roster-row.component.html',
+  imports: [DecimalPipe],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RosterRowComponent {
-  @Input() player: PlayerWithTeam | undefined;
+  player = input<PlayerWithTeam>();
 
   positionName = positionName;
 }

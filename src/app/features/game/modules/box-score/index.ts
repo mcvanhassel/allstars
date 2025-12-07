@@ -1,1 +1,1 @@
-export { BoxScoreModule } from './box-score.module';
+export { BoxScoreComponent } from './box-score.component';

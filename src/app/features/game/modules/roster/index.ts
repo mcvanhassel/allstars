@@ -1,1 +1,1 @@
-export { RosterModule } from './roster.module';
+export { RosterComponent } from './roster.component';

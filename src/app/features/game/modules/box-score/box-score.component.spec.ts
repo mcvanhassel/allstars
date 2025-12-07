@@ -1,27 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { createComponentFactory, type Spectator } from '@ngneat/spectator/jest';
 
-import { MaxModule } from '../../../../core/max';
-import { SumModule } from '../../../../core/sum';
 import { BoxScoreComponent } from './box-score.component';
 
 describe('BoxScoreComponent', () => {
-  let component: BoxScoreComponent;
-  let fixture: ComponentFixture<BoxScoreComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [BoxScoreComponent],
-      imports: [MaxModule, SumModule],
-    }).compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(BoxScoreComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  let spectator: Spectator<BoxScoreComponent>;
+  const createComponent = createComponentFactory({
+    component: BoxScoreComponent,
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    spectator = createComponent();
+    expect(spectator.component).toBeTruthy();
   });
 });

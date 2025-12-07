@@ -1,6 +1,6 @@
-import 'zone.js/dist/zone-error';
+import 'zone.js/plugins/zone-error';
 
-import { EnvironmentConfiguration } from './environment-configuration';
+import type { EnvironmentConfiguration } from './environment-configuration';
 
 export const environment: EnvironmentConfiguration = {
   production: false,

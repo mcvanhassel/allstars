@@ -1,4 +1,4 @@
-import { EnvironmentConfiguration } from './environment-configuration';
+import type { EnvironmentConfiguration } from './environment-configuration';
 
 export const environment: EnvironmentConfiguration = {
   production: true,

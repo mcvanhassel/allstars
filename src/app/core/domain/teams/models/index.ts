@@ -1,2 +1,2 @@
 export { Conference } from './conference';
-export { Team } from './team';
+export type { Team } from './team';

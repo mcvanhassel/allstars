@@ -1,7 +1,7 @@
 <table>
   <caption>
     {{
-      title
+      title()
     }}
   </caption>
   <thead>
@@ -30,31 +30,33 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let boxScore of boxScores" allstars-box-score-row [boxScore]="boxScore"></tr>
+    @for (boxScore of boxScores(); track boxScore) {
+      <tr allstars-box-score-row [boxScore]="boxScore"></tr>
+    }
   </tbody>
   <tfoot>
     <tr>
       <td></td>
       <td></td>
       <td></td>
-      <td class="text-right">{{ boxScores | sum: 'points' }}</td>
-      <td class="text-right">{{ boxScores | sum: 'totalRebounds' }}</td>
-      <td class="text-right">{{ boxScores | sum: 'assists' }}</td>
-      <td class="text-right">{{ boxScores | sum: 'steals' }}</td>
-      <td class="text-right">{{ boxScores | sum: 'blocks' }}</td>
-      <td class="text-right">{{ boxScores | sum: 'fieldGoalsMade' }}</td>
-      <td class="text-right">{{ boxScores | sum: 'fieldGoalsAttempted' }}</td>
+      <td class="text-right">{{ boxScores() | sum: 'points' }}</td>
+      <td class="text-right">{{ boxScores() | sum: 'totalRebounds' }}</td>
+      <td class="text-right">{{ boxScores() | sum: 'assists' }}</td>
+      <td class="text-right">{{ boxScores() | sum: 'steals' }}</td>
+      <td class="text-right">{{ boxScores() | sum: 'blocks' }}</td>
+      <td class="text-right">{{ boxScores() | sum: 'fieldGoalsMade' }}</td>
+      <td class="text-right">{{ boxScores() | sum: 'fieldGoalsAttempted' }}</td>
       <td></td>
-      <td class="text-right">{{ boxScores | sum: 'threePointersMade' }}</td>
-      <td class="text-right">{{ boxScores | sum: 'threePointersAttempted' }}</td>
+      <td class="text-right">{{ boxScores() | sum: 'threePointersMade' }}</td>
+      <td class="text-right">{{ boxScores() | sum: 'threePointersAttempted' }}</td>
       <td></td>
-      <td class="text-right">{{ boxScores | sum: 'freeThrowsMade' }}</td>
-      <td class="text-right">{{ boxScores | sum: 'freeThrowsAttempted' }}</td>
+      <td class="text-right">{{ boxScores() | sum: 'freeThrowsMade' }}</td>
+      <td class="text-right">{{ boxScores() | sum: 'freeThrowsAttempted' }}</td>
       <td></td>
-      <td class="text-right">{{ boxScores | sum: 'offensiveRebounds' }}</td>
-      <td class="text-right">{{ boxScores | sum: 'defensiveRebounds' }}</td>
-      <td class="text-right">{{ boxScores | sum: 'turnOvers' }}</td>
-      <td class="text-right">{{ boxScores | sum: 'personalFouls' }}</td>
+      <td class="text-right">{{ boxScores() | sum: 'offensiveRebounds' }}</td>
+      <td class="text-right">{{ boxScores() | sum: 'defensiveRebounds' }}</td>
+      <td class="text-right">{{ boxScores() | sum: 'turnOvers' }}</td>
+      <td class="text-right">{{ boxScores() | sum: 'personalFouls' }}</td>
     </tr>
   </tfoot>
 </table>

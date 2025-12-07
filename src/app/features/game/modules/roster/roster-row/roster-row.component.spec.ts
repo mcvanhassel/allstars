@@ -1,24 +1,21 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { createComponentFactory, type Spectator } from '@ngneat/spectator/jest';
 
 import { RosterRowComponent } from './roster-row.component';
+import { positionName } from '../../../../../core/domain/players';
 
 describe('RosterRowComponent', () => {
-  let component: RosterRowComponent;
-  let fixture: ComponentFixture<RosterRowComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [RosterRowComponent],
-    }).compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(RosterRowComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  let spectator: Spectator<RosterRowComponent>;
+  const createComponent = createComponentFactory({
+    component: RosterRowComponent,
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    spectator = createComponent();
+    expect(spectator.component).toBeTruthy();
+  });
+
+  it('should have position name mapping', () => {
+    spectator = createComponent();
+    expect(spectator.component.positionName).toBe(positionName);
   });
 });

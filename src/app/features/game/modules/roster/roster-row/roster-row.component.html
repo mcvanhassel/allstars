@@ -1,5 +1,7 @@
-<td>{{ player?.name }}</td>
-<td>{{ player?.team?.name }}</td>
-<td>{{ player && positionName[player.position] }}</td>
-<td class="text-right hide-small">{{ player?.selections }}</td>
-<td class="text-right">{{ player?.votes | number }}</td>
+@if (player(); as player) {
+  <td>{{ player.name }}</td>
+  <td>{{ player.team?.name }}</td>
+  <td>{{ positionName[player.position] }}</td>
+  <td class="text-right hide-small">{{ player.selections }}</td>
+  <td class="text-right">{{ player.votes | number }}</td>
+}

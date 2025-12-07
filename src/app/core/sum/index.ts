@@ -1,1 +1,1 @@
-export { SumModule } from './sum.module';
+export { SumPipe } from './sum.pipe';
