@@ -1,5 +1,3 @@
-import 'jest-preset-angular/setup-jest';
+import { setupZoneTestEnv } from 'jest-preset-angular/setup-env/zone';
 
-// Ensure Zone.js is available for Angular testing APIs
-import 'zone.js';
-import 'zone.js/testing';
+setupZoneTestEnv();

@@ -7,7 +7,7 @@
       "node"
     ],
     "module": "esnext",
-    "moduleResolution": "bundler"
+    "moduleResolution": "node16"
   },
   "include": [
     "src/**/*.spec.ts",
