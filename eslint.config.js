@@ -66,7 +66,6 @@ module.exports = tseslint.config(
       '@angular-eslint/use-lifecycle-interface': 'error',
       '@angular-eslint/use-pipe-transform-interface': 'error',
       '@angular-eslint/prefer-on-push-component-change-detection': 'error',
-      '@angular-eslint/no-conflicting-lifecycle': 'error',
       '@angular-eslint/contextual-lifecycle': 'error',
       '@angular-eslint/no-lifecycle-call': 'error',
       '@angular-eslint/prefer-standalone': 'error',
